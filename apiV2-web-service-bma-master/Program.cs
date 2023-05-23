@@ -57,14 +57,11 @@ var app = builder.Build();
 
 app.UseCors();
 
-if (app.Environment.IsDevelopment())
+app.UseSwagger();
+app.UseSwaggerUI(c =>
 {
-    app.UseSwagger();
-    app.UseSwaggerUI(c =>
-    {
-        c.SwaggerEndpoint("v1/swagger.json", "Banco de Alimentos V1");
-    });
-}
+    c.SwaggerEndpoint("v1/swagger.json", "Banco de Alimentos V1");
+});
 
 app.UseHttpsRedirection();
 
